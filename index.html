@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Batman</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: black;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: url('batman.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #overlay {
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 20px 30px;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="overlay">▶ Tocca per ascoltare</div>
+
+  <audio id="audio" src="batman.mp3"></audio>
+
+  <script>
+    const audio = document.getElementById('audio');
+    const overlay = document.getElementById('overlay');
+
+    audio.play().catch(() => {
+      overlay.style.display = 'block';
+    });
+
+    overlay.addEventListener('click', () => {
+      audio.play();
+      overlay.style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>
